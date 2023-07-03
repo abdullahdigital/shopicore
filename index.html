@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootsrap</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+    integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
+    crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0%;
+      background: linear-gradient(rgb(220, 97, 97));
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+    }
+
+    #moon {
+      mix-blend-mode: screen;
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      height: 35%;
+      width: 12%;
+      object-fit: cover;
+      overflow: hidden;
+    }
+    .welcome{
+      position: absolute;
+      top: 58%;
+      left: 70%;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light ps-5 pe-5 mt-0">
+      <div class="container-fluid">
+        <a class="navbar-brand me-5" href="#">Logo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active ps-5 pe-5 me-4 ms-5" aria-current="page" href="#">Home</a>
+            <a class="nav-link ps-5 pe-5 me-4 ms-5" href="#">About Us</a>
+            <a class="nav-link ps-5 pe-5 me-4 ms-5" href="#">Contact Us</a>
+            <a class="nav-link disabled ps-5 pe-5 me-4 ms-5">Features</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section>
+    <!-- <img src="img/img5.jpg" alt=""> -->
+    <img src="img/img5.jpg" alt="" id="night">
+    <h2 class="welcome" id="welcome">Welcome to My Website!</h2>
+    <img src="img/moon1.png" alt="" id="moon">
+    <div style="position:relative;">
+      <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+        <p>Scroll up and down to really get the feeling of how Parallax Scrolling works.</p>
+      </div>
+    </div>
+    <img src="img/img2.jpg" alt="" id="mountain">
+    <div style="position:relative;">
+      <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+        <p>Scroll up and down to really get the feeling of how Parallax Scrolling works.</p>
+      </div>
+    </div>
+    <img src="img/img3.jpg" alt="" id="ice">
+  </section>
+
+  <script>
+    /*   let night=document.getElementById("night")
+      let moon=document.getElementById("moon")
+    
+    window.addEventListener("scroll",function () {
+      let value=window.scrollY;
+      moon.style.top=value *1.05 + "px";
+    }
+    ) */
+
+    window.addEventListener("scroll", function () {
+      let scrollValue = window.scrollY;
+      let windowHeight = window.innerHeight;
+      let nightImage = document.getElementById("night");
+      let nightImageHeight = nightImage.offsetHeight;
+      let moon = document.getElementById("moon");
+
+
+      let sectionHeight = moon.parentElement.offsetHeight;
+      let moonHeight = moon.offsetHeight;
+      let scrollSpeed = 1.2; // Adjust this value to control the scrolling speed
+      let vanishOffset = nightImageHeight / 2; // Adjust this value to control when the moon should vanish
+
+      // Calculate the moon's position based on the scroll position and speed
+      let moonPosition = (scrollValue / sectionHeight) * (sectionHeight - windowHeight) * scrollSpeed;
+
+      // Apply the moon's position
+      moon.style.transform = `translateY(${moonPosition}px)`;
+
+      // Calculate the scroll position where the moon should start to vanish
+      let vanishPosition = (nightImageHeight - windowHeight) / 0.7;
+
+      // Hide the moon when it reaches the vanish position or beyond
+      if (scrollValue >= vanishPosition) {
+        moon.style.opacity = "0";
+      } else {
+        moon.style.opacity = "1";
+      }
+    });
+
+//Welcome
+      window.addEventListener("scroll", function () {
+  let scrollValue = window.scrollY;
+  let welcome = document.getElementById("welcome");
+  let value = window.scrollX;
+  
+  // Move the "Welcome" text to the right on scroll
+  welcome.style.left = value * 0.05 + "px";
+  
+  // Move the "Welcome" text back to the left when scrolling up
+  if (scrollValue === 0) {
+    welcome.style.left = "70%"; // Adjust the initial left position as needed
+  }
+});
+
+
+
+
+  </script>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"
+    integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+</body>
+
+</html>
