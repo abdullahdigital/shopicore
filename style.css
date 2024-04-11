@@ -1,0 +1,118 @@
+
+   #preloader{
+    background: #000 url(img/loader3.webp) no-repeat center center;
+    /* background-size: 25%; */
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    background-color: lightgreen;
+    padding: 15px 5%;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.navbar-toggler-icon {
+    background-color: darkgrey;
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.nav-link {
+    color: grey;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: darkgrey;
+}
+
+.hero {
+    background-color: lightgrey;
+    text-align: center;
+    padding: 50px 5%;
+    color: darkgreen;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: lightgreen;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+    background-color: darkgreen;
+}
+
+.product-offer {
+    background-color: lightgreen;
+    padding: 30px 5%;
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.proof-screenshots {
+    background-color: white;
+    padding: 30px 5%;
+    text-align: center;
+}
+
+.screenshot {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+footer {
+  background-color: lightgrey;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer-logo {
+  margin-bottom: 20px; /* Add some space below the logo */
+}
+
+.footer-links a:hover {
+  color: darkgreen;
+  text-decoration: none;
+}
+
+.footer-copyright {
+  margin-top: 20px; /* Add some space above the copyright */
+  color: grey;
+}
+
+.image-height{
+    height: 20rem;
+}
